@@ -1,0 +1,47 @@
+﻿<html>
+    <head>
+        <link rel='stylesheet' type="text/css" href="./styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <title>ورود</title>
+    </head>
+    <body>
+        <div class="basic">
+            <div class="base_login">
+                <div class="up_login">
+                    <div class="title_login">
+                        <div class="text_icon">
+                            <span style="font-size: 18px;">
+                                برای ورود فرم زیر را پر کنید.
+                            </span>
+                        </div>
+                        <div class="logo_login">
+                            <!-- <i class="material-icons" id="icon_medium">account_box</i> -->
+                            <img id="image_medium" src="./assets/images/logo.png">
+                        </div>   
+                    </div>
+                    <div class="Divider"></div>
+                </div>
+                <div class="down_login">
+                    <form class="login_form" id='form' method="post" action="/login">
+                        <div class="input_text">
+                            <i class="material-icons" style="font-size: 36px; cursor: default; color: #a60c2a;">account_circle</i>
+                            <input type="text" value='' id="login1" name="uname"  placeholder="نام کاربری">
+                            </input>
+                        </div>
+
+                        <div class="input_text">
+                            <i class="material-icons" style="font-size: 36px; cursor: default; color: #a60c2a;">fingerprint</i>
+                            <input type="password" value="" id="login" name="psw"  placeholder="رمز عبور">
+                        </div>
+
+
+                        <button type="submit" class="login">
+                            ورود
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

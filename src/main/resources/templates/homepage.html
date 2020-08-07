@@ -1,0 +1,242 @@
+﻿<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel='stylesheet' type="text/css" href="./styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <title>فروشگاه</title>
+    </head>
+    <style>
+        :root{
+            background-color: white !important;
+        }
+    </style>
+    <body>
+        <div class="topnav">
+            <div style="display: flex; flex-direction: row; align-items: center; margin-right: 20px;">
+                <a href="/home">
+                <img src="./assets/images/logo.png" style="height: 48px; cursor: pointer;">
+                </a>
+                <button onclick="myFunction()" class="dropbtn">+شهر مورد نظر</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a>تهران</a>
+                    <a>رشت</a>
+                    <a>آبادان</a>
+                </div>
+            </div>
+            <div class="items-top">
+                <a>پشتیبانی و قوانین</a>
+                <a>تماس با ما</a>
+                <a href="/logout">خروج</a>
+                <button onclick="myFunction3()" class="new_agahi">ثبت رایگان آگهی</button>
+                <div id="myDropdown3" class="dropdown-content3">
+                    <a href="/car">وسایل نقلیه</a>
+                    <a href="/rentalEstate">اجاره مسکونی</a>
+                    <a href="/rentalOfficial">اجاره اداری تجاری</a>
+                    <a href="/saleEstate">فروش مسکونی</a>
+                    <a href="/saleOfficial">فروش اداری تجاری</a>
+                </div>
+            </div>
+        </div>
+        <div class="homepage">
+            <div class="homepage-item side">
+                <p>
+                    دسته‌بندی‌ها
+                </p>
+                <a class="sorts"  href="/home?category=Estate" ><i class="material-icons" style="font-size: 20px; margin-left: 15px;">business</i><span> املاک </span></a>
+                <a class="sorts"  href="/home?category=Vehicle" ><i class="material-icons" style="font-size: 20px; margin-left: 15px;">airport_shuttle</i><span> وسایل نقلیه </span></a>
+                <div class="DividerHalf gray_border"></div>
+                <button class="accordion">
+                    <div class='open_button'>
+                        <span>
+                            محل
+                        </span>
+                        <i class="material-icons" style="font-size: 22px;">
+                            expand_more
+                        </i>
+                    </div>
+                </button>
+                <div class="panel">
+                    <button onclick="myFunction2()" class="dropbtn2">+شهر مورد نظر</button>
+                    <div id="myDropdown2" class="dropdown-content2">
+                        <a>محله اول</a>
+                        <a>محله دوم</a>
+                        <a>محله سوم</a>
+                    </div>
+                </div>
+                <div class="DividerHalf gray_border"></div>
+                <button class="accordion">
+                    <div class='open_button'>
+                        <span>
+                            قیمت
+                        </span>
+                        <i class="material-icons" style="font-size: 22px;">
+                            expand_more
+                        </i>
+                    </div>
+                </button>
+                <div class="panel">
+                    <input style="width: 200px;" type="number" value="" id="login2" name="minVal" for='minVal' placeholder="حداقل قیمت (تومان)">
+                    <br>
+                    <input style="width: 200px;" type="number" value="" id="login3" name="maxVal" for='maxVal' placeholder="حداکثر قیمت (تومان)">
+                </div>
+                <div class="DividerHalf gray_border"></div>
+                <div class="panel2">
+                    <span>
+                        فقط عکس‌دار
+                    </span>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="DividerHalf gray_border"></div>
+                <div class="panel2">
+                    <span>
+                        فقط فوری‌ها
+                    </span>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="DividerHalf gray_border"></div>
+            </div>
+            <div class="homepage-item all">
+                <div class="search_box">
+                    <span>
+                        آگهی‌ها
+                    </span>
+                    <input class="searchInput" type="text" value="" id="login1" name="search" for='search' placeholder="جستجو در آگهی‌ها">
+                </div>
+                <div class="category">
+                    <span>
+                        خودرو سواری
+                    </span>
+                    <span>
+                        خرید آپارتمان
+                    </span>
+                    <span>
+                        اجاره آپارتمان
+                    </span>
+                </div>
+                <div class="description">
+                    <span>
+                        دیوار تهران - نیازمندی‌ های رایگان، آگهی‌های خرید، فروش نو و دست دوم و کارکرده، استخدام و خدمات
+                    </span>
+                </div>
+                <div class="Divider gray_border">
+
+                </div>
+                <div style="width: 100%; height: 150px; display: flex; flex-direction: row; justify-content: center;">
+                    <div class="banner" style="cursor: pointer;background-image:url(https://s100.divarcdn.com/statics/2020/07/general-web.924543c.png); background-size: cover; background-repeat: no-repeat;">
+                        
+                    </div>
+                </div>
+                    <!-- use one of this cards to make many of them from -->
+
+                    <div class='agahi' th:each="ad : ${advertisements.content}">
+                        <div class="description_agahi">
+                            <p id="name_agahi">
+                                <b th:text="${ad.title}">
+                                </b>
+                            </p>
+                            <div id="message" th:if="${ad.hasPrice}" class="container">
+                                <p th:text="${ad.price}" >
+
+
+                                </p>
+                                <p>
+                                    تومان
+                                </p>
+                            </div>
+                            <div id="message" th:if="${!ad.hasPrice}" class="container">
+                                <p >
+                                    توافقی </b>
+                                </p>
+
+                            </div>
+
+                            <p style="color: #bdbdbd;" th:text="${ad.sectorEntity.name}">
+                            </p>
+                        </div>
+                        <div class='image_agahi'>
+                            <div class="image_solver" style="background-image: url(https://s101.divarcdn.com/static/thumbnails/1595190772/wXUw2PBp.jpg);">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+            panel.style.display = "none";
+            } else {
+            panel.style.display = "block";
+            }
+        });
+        }
+
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+            if (!event.target.matches('.dropbtn2')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content2");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show2')) {
+                        openDropdown.classList.remove('show2');
+                    }
+                }
+            }
+            if (!event.target.matches('.new_agahi')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content3");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show3')) {
+                        openDropdown.classList.remove('show3');
+                    }
+                }
+            }
+        }
+
+        function myFunction2() {
+            document.getElementById("myDropdown2").classList.toggle("show2");
+        }
+
+        function myFunction3() {
+            document.getElementById("myDropdown3").classList.toggle("show3");
+        }
+        
+
+    </script>
+</html>

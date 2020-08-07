@@ -1,0 +1,63 @@
+﻿<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel='stylesheet' type="text/css" href="./styles.css" >
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <title>ثبت نام</title>
+    </head>
+    <body>
+        <div class="basic">
+            <div class="base_login">
+                <div class="up_login">
+                    <div class="title_login">
+                        <div class="text_icon">
+                            <span style="font-size: 16px;">
+                                برای ثبت نام فرم زیر را پر کنید.
+                            </span>
+                        </div>
+                        <div class="logo_login">
+                            <!-- <i class="material-icons" id="icon_medium">account_box</i> -->
+                            <img id="image_medium" src="./assets/images/logo.png">
+                        </div>   
+                    </div>
+                    <div class="Divider"></div>
+                </div>
+                <div class="down_login">
+                    <form class="login_form" id='form' method="post" action="/register">
+                        <div class="input_text">
+                            <i class="material-icons" style="font-size: 30px; cursor: default; color: #a60c2a;">account_circle</i>
+                            <input type="text" value='' id="uname" name="uname" for='username' placeholder="نام کاربری">
+                            </input>
+                        </div>
+                        <div class="input_text">
+                            <i class="material-icons" style="font-size: 30px; cursor: default; color: #a60c2a;">call</i>
+                            <input style="width: 46%;" type="text" value="" id="na" name="fname" for='fname' placeholder="نام">
+                            <input style="width: 46%; margin-right: 5px;" type="text" value="" id="na1" name="lname" for='lname' placeholder="نام خانوادگی">
+                        </div>
+                        <div class="input_text">
+                            <i class="material-icons" style="font-size: 30px; cursor: default; color: #a60c2a;">call</i>
+                            <input type="number" value="" id="na2" name="phone" for='phone' placeholder="شماره همراه">
+                        </div>
+
+                        <div class="input_text">
+                            <i class="material-icons" style="font-size: 30px; cursor: default; color: #a60c2a;">fingerprint</i>
+                            <input type="password" value="" id="login" name="password" for='password' placeholder="رمز عبور">
+                        </div>
+                        <button type="submit" class="login">
+                            ثبت نام
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="message" th:if="${param.error != null and param.message != true}" class="container">
+            <div class="alert  alert-dismissible text-center" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+                <strong>
+                    خطا:
+                </strong >
+                نام کاربری ویا رمز عبور اشتباه است
+            </div>
+        </div>
+    </body>
+
+</html>

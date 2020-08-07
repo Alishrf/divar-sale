@@ -1,0 +1,171 @@
+﻿<html>
+    <head>
+        <link rel='stylesheet' type="text/css" href="./styles.css">
+        <link rel='stylesheet' type="text/css" href="./dropzone-5.7.0/dist/dropzone.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="./path/to/dropzone.js"></script>
+        <title>آگهی جدید املاک، فروش مسکونی</title>
+    </head>
+    <body>
+        <div class="topnav">
+            <img src="./assets/images/logo.png" style="height: 48px; cursor: pointer;">
+            <div class="items-top">
+                <a>پشتیبانی و قوانین</a>
+                <a>تماس با ما</a>
+                <a>خروج</a>
+            </div>
+        </div>
+        <div class="house_new">
+            <div>
+                <span style="font-size: 20px;">
+                    <b>
+                        ثبت رایگان آگهی
+                    </b>
+                </span>
+            </div>
+
+
+
+
+            <form modelAttribute="ad" action="/addSaleOfficial" method="post">
+
+
+
+                <div class="typeFinder">
+                    <span style="font-size: 14px; font-weight: lighter;">
+                        دسته بندی
+                    </span>
+
+                    <select   name="category" id="cars">
+                        <option value="مغازه و غرفه">مغازه و غرفه</option>
+                        <option value="دفتر کار، اتاق اداری و مطب">دفتر کار، اتاق اداری و مطب</option>
+                        <option value="صنعتی، کشاورزی و تجاری">صنعتی، کشاورزی و تجاری</option>
+                        <option value="متفرقه">متفرقه</option>
+                    </select>
+
+                </div>
+                <div class="form_new">
+                    <input   type="text" value="" id="login" name="city" for='city' placeholder="شهر" style="width: 49%;">
+                    <input type="text" value="" id="login" name="sector" for='sector' placeholder="محدوده" style="width: 49%;">
+                    <label style="padding: 8px; margin-top: 8px;">
+                        آدرس
+                    </label>
+                    <input  type="text" value="" id="login" name="address" for='address' placeholder="آدرس">
+
+                    <label style="padding: 8px; margin-top: 8px;">
+                        متراژ
+                    </label>
+                    <input type="number" value="" id="login" name="area" for='scale' placeholder="متر">
+
+                    <label style="padding: 8px; margin-top: 8px;">
+                        قیمت کل
+                    </label>
+                    <input type="number" value="" id="login" name="price" for='vadie' placeholder="تومان">
+                    <label style="padding: 8px; margin-top: 8px;">
+                        تعداد اتاق
+                    </label>
+                    <input type="number" value="" id="login" name="numberOfRoom" for='room' placeholder="">
+                    <label style="padding: 8px; margin-top: 8px;">
+                        سال ساخت
+                    </label>
+                    <input type="number" value="" id="login" name="yearOfConstruction" for='year' placeholder="">
+                    <label style="padding: 8px; margin-top: 8px;">
+                        سند اداری
+                    </label>
+
+                    <select name="isOfficial" id="sanad">
+                        <option value="true">دارد</option>
+                        <option value="false">ندارد</option>
+                    </select>
+                    <label style="padding: 8px; margin-top: 8px;">
+                        وضعیت آگهی:
+                    </label>
+                    <select name="isInstantaneous" id="Instantaneous">
+                        <option value="true">فوری</option>
+                        <option value="false">غیر فوری</option>
+                    </select>
+
+                    <label style="padding: 8px; margin-top: 8px;">
+                        وضعیت قیمت:
+                    </label>
+                    <select name="hasPrice" id="Instantaneous45">
+                        <option value="true">قیمت وارد شده صحیح است</option>
+                        <option value="false">توافقی</option>
+                    </select>
+
+                    <label style="padding: 8px; margin-top: 8px;">
+                        نوع آگهی:
+                    </label>
+                    <select name="advertisementType" id="Instantaneous12">
+                        <option value="REQUESTED">درخواستی</option>
+                        <option value="SELLER">فروشنده</option>
+                    </select>
+
+
+                    <label style="padding: 8px; margin-top: 8px;">
+                        پارکینگ:
+                    </label>
+                    <select name="hasParking" id="Instantaneous1">
+                        <option value="true">دارد</option>
+                        <option value="false">ندارد</option>
+                    </select>
+
+
+                    <label style="padding: 8px; margin-top: 8px;">
+                        زیرزمین:
+                    </label>
+                    <select name="hasWareHouse" id="Instantaneous2">
+                        <option value="true">دارد</option>
+                        <option value="false">ندارد</option>
+                    </select>
+
+
+                    <label style="padding: 8px; margin-top: 8px;">
+                        آسانسور:
+                    </label>
+                    <select name="hasElevator" id="Instantaneous3">
+                        <option value="true">دارد</option>
+                        <option value="false">ندارد</option>
+                    </select>
+
+                    <p style="font-size: 8px; margin: 8px 0px;">
+                        توجه: شماره موبیایل شما همان شماره موبایلی است که موقع ثبت نام وارد کردید
+                        <br>
+                    </p>
+
+                    <label style="padding: 8px; margin-top: 8px;">
+                        عنوان آگهی
+                    </label>
+                    <p style="font-size: 8px; margin: 8px 0px;">
+                        در عنوان آگهی به موارد مهم و چشمگیر اشاره کنید.
+                    </p>
+                    <input type="text" value="" id="login" name="title" for='title' placeholder="عنوان">
+                    <label style="padding: 8px; margin-top: 8px;">
+                        توضیحات آگهی
+                    </label>
+                    <p style="font-size: 8px; margin: 8px 0px;">
+                        در توضیحات آگهی به مواردی مانند شرایط فروش، جزئیات و ویژگی‌های قابل توجه، دسترسی‌های محلی و موقعیت قرارگیری ملک اشاره کنید.
+                    </p>
+                    <input type="text" value="" id="login" name="description" for='des' placeholder="توضیحات">
+
+
+
+                    <input type="hidden" value="saleEstate" id="login" name="type" for='des' placeholder="توضیحات">
+                    <div style="display: flex; flex-direction: row; justify-content: flex-end; margin-top: 30px; margin-bottom: 30px;">
+                        <button type="submit" class="new_agahi">
+                            ثبت آگهی
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+
+
+
+
+
+        </div>
+    </body>
+    <script>
+    </script>
+</html>

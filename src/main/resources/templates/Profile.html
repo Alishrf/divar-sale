@@ -1,0 +1,166 @@
+﻿<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel='stylesheet' type="text/css" href="./styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <title>پروفایل</title>
+    </head>
+    <style>
+        :root{
+            background-color: white !important;
+        }
+    </style>
+    <body>
+        <div class="topnav">
+            <a href="/home">
+            <img src="./assets/images/logo.png" style="height: 48px; cursor: pointer;">
+            </a>
+            <div class="items-top">
+                <a>پشتیبانی و قوانین</a>
+                <a>تماس با ما</a>
+                <a href="/logout">خروج</a>
+                <button onclick="myFunction3()" class="new_agahi">ثبت رایگان آگهی</button>
+                <div id="myDropdown3" class="dropdown-content3">
+                    <a href="/car">وسایل نقلیه</a>
+                    <a href="/rentalEstate">اجاره مسکونی</a>
+                    <a href="/rentalOfficial">اجاره اداری تجاری</a>
+                    <a href="/saleEstate">فروش مسکونی</a>
+                    <a href="/saleOfficial">فروش اداری تجاری</a>
+                </div>
+            </div>
+        </div>
+        <div class="profile">
+            <div class="profile_image">
+                <img src="./assets/images/unknownUser.jpg" style="width: 100%;">
+
+            </div>
+            <div class="description_profile">
+                <div style="display: flex; flex-direction: row; justify-content: space-between; padding-left: 20%;">
+                    <span class="name_profile" th:text="${user.name +  ' ' + user.familyName}">
+
+                    </span>
+                    تعداد پست ها :
+                    <p class="normal_size_font" th:text="${size} ">
+                    </p>
+                </div>
+                <div style="margin-top: 30px;">
+                    شماره همراه :
+                    <p class="normal_size_font" th:text="${user.phone}">
+                    </p>
+                </div>
+                <div style="margin-top: 40px;">
+                    <span style="font-size: 16px; color: grey;">
+                        عضو شده به مدت تقریبی 1 روز
+                    </span>
+                </div>
+            </div>
+            <div class="add_new">
+                <button onclick="myFunction()" id="new_agahi" class="dropbtn2" style="font-size: 14px;">آگهی جدید +</button>
+                <div id="myDropdown2" class="dropdown-content2">
+                    <a>خودرو</a>
+                    <a>خانه</a>
+                </div>
+            </div>
+        </div>
+        <div class="Divider gray_border">
+
+        </div>
+        <div>
+            <h3 style="padding: 10px 3%;">
+                آگهی‌های من
+            </h3>
+        </div>
+
+
+        <div class="agahis" style="margin-top: 30px;" th:each="ad : ${advertisements}">
+
+
+
+            <div class='agahi' style="cursor: default;">
+                <div class="description_agahi">
+                    <p id="name_agahi">
+                        <b th:text="${ad.title}">
+                            <i class="material-icons" style="padding-top: 5px; cursor: pointer; padding-right: 10px;">delete</i>
+                        </b>
+                    </p>
+                    <p th:text="${ad.price}">
+                    </p>
+                    <p style="color: #bdbdbd;" th:text="${ad.sectorEntity.name}">
+                    </p>
+                </div>
+                <div class='image_agahi' style="cursor: pointer;">
+                    <div class="image_solver" style="background-image: url(https://s101.divarcdn.com/static/thumbnails/1595190776/wXMMCLW8.jpg);">
+
+                    </div>    
+                </div>
+            </div>
+
+
+
+        </div>
+    </body>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+            panel.style.display = "none";
+            } else {
+            panel.style.display = "block";
+            }
+        });
+        }
+
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+            if (!event.target.matches('.dropbtn2')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content2");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show2')) {
+                        openDropdown.classList.remove('show2');
+                    }
+                }
+            }
+            if (!event.target.matches('.new_agahi')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content3");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show3')) {
+                        openDropdown.classList.remove('show3');
+                    }
+                }
+            }
+        }
+
+        function myFunction2() {
+            document.getElementById("myDropdown2").classList.toggle("show2");
+        }
+
+        function myFunction3() {
+            document.getElementById("myDropdown3").classList.toggle("show3");
+        }
+        
+
+    </script>
+</html>
